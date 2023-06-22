@@ -48,6 +48,12 @@
     }
 
     async function shareMsg() {
+      await liff.shareTargetPicker([
+      {
+        "type": "text",
+        "text": "This message was sent by ShareTargetPicker"
+      }  
+      ])
     }
 
     function logOut() {
@@ -66,6 +72,16 @@
     }
 
     async function sendMsg() {
+      if(liff.getContext().type !== "none"){
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+        }
+        ])
+        alert("Message sent")
+      }
     }
 
     function getContext() {
